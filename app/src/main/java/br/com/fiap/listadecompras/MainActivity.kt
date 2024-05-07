@@ -16,7 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.listadecompras.ui.theme.ListaDeComprasTheme
 
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    @SuppressLint("MissingInflatedId")
+      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
