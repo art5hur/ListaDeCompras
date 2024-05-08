@@ -40,6 +40,29 @@ class MainActivity : ComponentActivity() {
       
       É onde ocorre a inicialização básica da atividade, como inflar o layout da IU (interface do usuário), associar 
       componentes da IU com variáveis Java e definir ouvintes de eventos.
+
+
+     É um método de ciclo de vida de uma atividade Android. 
+     Ele é chamado quando a atividade é criada.
+     Inicializa a interface do usuário e configura o RecyclerView para exibir a lista de produtos.
+    
+
+    /*
+    --Bundle:
+    O Bundle é usado para armazenar e passar dados entre componentes do Android,
+    como atividades (Activity), fragmentos (Fragment), serviços (Service), etc.
+    O Bundle é frequentemente utilizado para transferir informações entre diferentes partes
+    do aplicativo ou entre diferentes atividades. Ele faz isso através da chave e valor;
+    
+    - Chave: Uma chave é uma string única que identifica um valor dentro do Bundle. É usada
+    como um identificador para recuperar o valor correspondente mais tarde. Cada chave em um
+    Bundle deve ser única, pois é usada para distinguir entre diferentes valores armazenados no Bundle.
+
+    - Valor: O valor associado a uma chave é o dado real que está sendo armazenado. Este pode ser de 
+    qualquer tipo de dado suportado pelo Bundle, incluindo primitivos como inteiros, strings, booleanos,
+    bem como objetos serializáveis (reconstruído a partir da sequência de bytes original) e parceláveis
+    (conversão do objeto em uma representação de bytes que pode ser transmitida ou armazenada).
+     
      */
 
      /*
@@ -49,6 +72,15 @@ class MainActivity : ComponentActivity() {
        receber entrada do usuário e fornecer uma experiência intuitiva e agradável.
     */
     
+     /*
+       O super.OnCreate(savedInstanceState) chama a implementação do método onCreate() da classe pai (Activity) para garantir que o comportamento padrão seja executado antes de qualquer personalização adicional.
+
+      A função do super.onCreate(savedInstanceState) é permitir que a classe base execute as inicializações necessárias para a atividade, como inflar o layout associado à atividade, restaurar o estado anterior da atividade (se houver) a partir do Bundle fornecido (savedInstanceState), configurar o ambiente de execução da atividade.
+
+     Ao chamar super.onCreate(savedInstanceState), você está garantindo que a classe base tenha a oportunidade de executar seu próprio código de inicialização antes de você adicionar qualquer lógica personalizada. Isso é crucial para garantir o funcionamento adequado da atividade dentro do ciclo de vida do Android e para manter o comportamento consistente em todo o aplicativo.
+ 
+     */
+
       override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         /*
@@ -62,6 +94,10 @@ class MainActivity : ComponentActivity() {
             Encontra o RecyclerView no layout da atividade para exibir a lista de itens.
         */
         
+        /* 
+          A função principal do RecyclerView é gerenciar a exibição de uma grande quantidade de itens de dados de maneira eficiente, especialmente quando a lista pode mudar dinamicamente, como ao adicionar ou remover itens. Ele faz isso implementando um padrão de projeto chamado "View Holder" que reutiliza as visualizações de itens que não estão visíveis na tela, reduzindo a sobrecarga de memória e melhorando o desempenho.
+        */
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView);
          
         val itemsAdapter = ItemsAdapter()
